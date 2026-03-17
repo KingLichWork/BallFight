@@ -9,6 +9,7 @@ public class GameLifetimeScope : LifetimeScope
     [SerializeField] private StartUI _startUI;
     [SerializeField] private GameUI _gameUI;
 
+    [SerializeField] private WeaponsData _weaponData;
     [SerializeField] private ArenaController _arenaController;
 
     protected override void Configure(IContainerBuilder builder)
@@ -16,7 +17,7 @@ public class GameLifetimeScope : LifetimeScope
         builder.RegisterComponent(_startUI);
         builder.RegisterComponent(_gameUI);
 
-
+        builder.RegisterComponent(_weaponData);
         builder.RegisterComponent(_arenaController);
 
         builder.RegisterEntryPoint<GameBootstrap>();

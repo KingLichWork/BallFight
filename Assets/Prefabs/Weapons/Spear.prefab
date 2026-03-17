@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6597372502538371694}
   - component: {fileID: 3832095014511520620}
-  - component: {fileID: -4145904717873500204}
-  m_Layer: 0
+  - component: {fileID: -6860640211394122745}
+  m_Layer: 6
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &-4145904717873500204
+--- !u!60 &-6860640211394122745
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

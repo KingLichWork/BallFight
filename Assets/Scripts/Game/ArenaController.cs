@@ -16,9 +16,10 @@ public class ArenaController : MonoBehaviour
 
     private StartUI _startUI;
     private GameUI _gameUI;
+    private IObjectResolver _objectResolver;
 
     [Inject]
-    public void Construct(StartUI startUI, GameUI gameUI)
+    public void Construct(StartUI startUI, GameUI gameUI, IObjectResolver objectResolver)
     {
         _startUI = startUI;
         _gameUI = gameUI;
@@ -68,7 +69,8 @@ public class ArenaController : MonoBehaviour
         {
             var ball = Instantiate(ballPrefab, _spawnPoints[i].position, Quaternion.identity, _spawnPoints[i]).GetComponent<BallEntity>();
 
-            ball.AssignWeapon(battleWeapons[i]);
+            ball.Init();
+            ball.AssignWeapon(battleWeapons[0]);
             //ball.PlayerIndex = i;
             ball.Health.OnDied += OnBallDied;
 
@@ -117,7 +119,7 @@ public class ArenaController : MonoBehaviour
         if (alive <= 1)
         {
             _battleRunning = false;
-            string winner = lastAlive != null ? lastAlive.WeaponData.weaponName : "Ничья";
+            string winner = lastAlive != null ? lastAlive.BallData.Weapon.weaponName : "Ничья";
             Debug.Log($"[Arena] Победитель: {winner}!");
             EndBattle();
         }

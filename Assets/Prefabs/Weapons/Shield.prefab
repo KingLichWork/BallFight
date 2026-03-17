@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6597372502538371694}
   - component: {fileID: 3832095014511520620}
-  - component: {fileID: 3354258042339797020}
-  m_Layer: 0
+  - component: {fileID: 2899626618241430390}
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3354258042339797020
+--- !u!60 &2899626618241430390
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -69,6 +69,12 @@ public static class SaveManager
 [Serializable]
 public class UnlockedData
 {
+    private bool[] _colorBalls;
+    private bool[] _weapons;
+
+    public bool[] ColorBalls { get { return _colorBalls; } set { _colorBalls = value; SaveManager.Save(this); } }
+    public bool[] Weapons { get { return _weapons; } set { _weapons = value; SaveManager.Save(this); } }
+
     public void Save()
     {
         SaveManager.Save(this);

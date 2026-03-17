@@ -50,9 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee931c41751444745abab377273996d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Ball.BallEntity
-  weaponData: {fileID: 11400000, guid: ce28c3cc6d971f641a547db7764b5c02, type: 2}
-  ballRenderer: {fileID: 9192504695051149544}
-  weaponRoot: {fileID: 223528275811530282}
+  _ballRenderer: {fileID: 9192504695051149544}
+  _weaponRoot: {fileID: 223528275811530282}
 --- !u!114 &4655864706753109091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,8 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41ac3ca7bcf3f04aadd09d3111afc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Ball.BallHealth
-  maxHp: 100
-  invincibilityAfterHit: 0.1
 --- !u!114 &384346563607868531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,13 +76,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213d43f6f80185d43bc077efd47ca5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Ball.BallPhysics
-  moveSpeed: 3.5
-  minSpeed: 2
-  maxSpeed: 6
-  wallBounceAngleJitter: 12
-  wallRepulsionDistance: 0.6
-  wallRepulsionForce: 4
-  hitBounceForce: 3
+  _moveSpeed: 3.5
+  _minSpeed: 2
+  _maxSpeed: 7
+  _wallBounceAngleJitter: 12
+  _wallRepulsionDistance: 0.6
+  _wallRepulsionForce: 4
+  _hitBounceForce: 5
 --- !u!58 &7882609695139762443
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -372,10 +369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f682ccfffc5056c45a56832165d11061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Ball.BallHealthDisplay
-  format: '{0}'
-  fullColor: {r: 1, g: 1, b: 1, a: 1}
-  lowColor: {r: 1, g: 0.25, b: 0.15, a: 1}
-  lowThreshold: 0.35
+  _format: '{0}'
+  _fullColor: {r: 1, g: 1, b: 1, a: 1}
+  _lowColor: {r: 1, g: 0, b: 0, a: 1}
+  _lowThreshold: 0.35
 --- !u!1 &6650947716547995340
 GameObject:
   m_ObjectHideFlags: 0

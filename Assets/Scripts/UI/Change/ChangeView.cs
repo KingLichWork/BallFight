@@ -11,8 +11,11 @@ public class ChangeView : MonoBehaviour
 
     [SerializeField] private GameObject _lock;
 
-    public void Init()
+    public void Init(WeaponData weapon)
     {
+        _image.sprite = weapon.weaponSprite;
+        _name.text = weapon.name;
 
+       //_lock.SetActive(SaveManager.UnlockedData.);
     }
 }

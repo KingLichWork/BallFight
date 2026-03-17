@@ -1,37 +1,5 @@
 ﻿using UnityEngine;
 
-public enum ScalingType
-{
-    MeleeDamageOnHit,
-    MeleeDamageAndLengthOnHit,
-    MeleeSpeedScalesDamage,
-    MeleePoisonOnHit,
-    SpinDamageAndSpeedOnHit,
-    ShieldWidthOnParry,
-    RangedFireRateOnHit,
-}
-
-[System.Serializable]
-public class WeaponRuntimeStats
-{
-    public float damage;
-    public float length;
-    public float rotationSpeed;
-    public float width;
-    public float fireInterval;
-    public int hitCount;
-    public int parryCount;
-
-    public WeaponRuntimeStats(WeaponData data)
-    {
-        damage = data.baseDamage;
-        length = data.baseLength;
-        rotationSpeed = data.baseRotationSpeed;
-        width = data.baseWidth;
-        fireInterval = data.fireInterval;
-    }
-}
-
 [CreateAssetMenu(menuName = "WBB/WeaponScaling", fileName = "Scaling_New")]
 public class WeaponScaling : ScriptableObject
 {
@@ -115,4 +83,36 @@ public class WeaponScaling : ScriptableObject
         if (type == ScalingType.ShieldWidthOnParry)
             stats.width = Mathf.Min(stats.width + widthPerParry, maxWidth);
     }
+}
+
+[System.Serializable]
+public class WeaponRuntimeStats
+{
+    public float damage;
+    public float length;
+    public float rotationSpeed;
+    public float width;
+    public float fireInterval;
+    public int hitCount;
+    public int parryCount;
+
+    public WeaponRuntimeStats(WeaponData data)
+    {
+        damage = data.baseDamage;
+        length = data.baseLength;
+        rotationSpeed = data.baseRotationSpeed;
+        width = data.baseWidth;
+        fireInterval = data.fireInterval;
+    }
+}
+
+public enum ScalingType
+{
+    MeleeDamageOnHit,
+    MeleeDamageAndLengthOnHit,
+    MeleeSpeedScalesDamage,
+    MeleePoisonOnHit,
+    SpinDamageAndSpeedOnHit,
+    ShieldWidthOnParry,
+    RangedFireRateOnHit,
 }

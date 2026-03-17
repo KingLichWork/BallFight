@@ -11,6 +11,7 @@ public class StartUI : UIPanel
     [SerializeField] private Button _startButton;
 
     [SerializeField] private GameObject _changeButtonPrefab;
+    [SerializeField] private Transform _changeButtonParent;
 
     private List<Button> _changeButtons = new();
     private Camera _camera;
@@ -38,11 +39,11 @@ public class StartUI : UIPanel
 
         foreach (BallEntity ball in balls)
         {
-            var button = Instantiate(_changeButtonPrefab, transform).GetComponent<Button>();
+            var button = Instantiate(_changeButtonPrefab, _changeButtonParent).GetComponent<Button>();
             button.GetComponent<RectTransform>().position = _camera.WorldToScreenPoint(ball.transform.position - Vector3.up * 3);
             _changeButtons.Add(button.GetComponent<Button>());
 
-            button.onClick.AddListener(_changeBallUI.Show);
+            button.onClick.AddListener(() => _changeBallUI.SetInfo(ball.BallData));
         }
     }
 

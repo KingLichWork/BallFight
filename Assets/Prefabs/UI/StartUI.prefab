@@ -394,6 +394,7 @@ RectTransform:
   - {fileID: 8181938839369307704}
   - {fileID: 3851970570065542956}
   - {fileID: 6029794057352681621}
+  - {fileID: 107131614995133533}
   - {fileID: 8936988455628303330}
   m_Father: {fileID: 7844254556507258851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -589,8 +590,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StartUI
   _holder: {fileID: 2064794486376580150}
   _resourcesViewUI: {fileID: 2443327657829919318}
+  _changeBallUI: {fileID: 2939532881525090802}
   _startButton: {fileID: 7218385878426369762}
   _changeButtonPrefab: {fileID: 5672873492779340420, guid: fef6d230afa2a254aa19ba389cb4d948, type: 3}
+  _changeButtonParent: {fileID: 107131614995133533}
 --- !u!1 &6355526530941846885
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +794,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7859533980137999310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107131614995133533}
+  m_Layer: 5
+  m_Name: ChangeButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &107131614995133533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859533980137999310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4553650249510257455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8269953062261079020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1135,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d15713059dc7a94caf11abb3b04ddbb, type: 3}
+--- !u!114 &2939532881525090802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1261648116514679608, guid: 1d15713059dc7a94caf11abb3b04ddbb, type: 3}
+  m_PrefabInstance: {fileID: 4127856731965866698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9572a8e8784a6fe4783225e695552f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeBallUI
 --- !u!224 &8936988455628303330 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4994378142806845736, guid: 1d15713059dc7a94caf11abb3b04ddbb, type: 3}
