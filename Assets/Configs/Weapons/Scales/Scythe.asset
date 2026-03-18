@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcc5a3eec8b5564399d74447b670424, type: 3}
   m_Name: Scythe
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponScalingSO
-  type: 0
+  type: 3
   damagePerHit: 1
   lengthPerHit: 0.5
   speedPerHit: 30

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810b152311eeb149880393b2d5830a8, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponDataSO
+  weaponPrefab: {fileID: 3976688096176557477, guid: e188b0536d177004f926de8e5bccf0d2, type: 3}
+  scaling: {fileID: 11400000, guid: 73f86cf199f546f419dc647926d3eca9, type: 2}
   weaponName: Sword
-  ballColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  weaponSprite: {fileID: 0}
-  behaviourType: 0
+  weaponSprite: {fileID: 21300000, guid: 4beac1b46bb34e848a3a95867705807d, type: 2}
+  behaviourType: 3
   baseDamage: 10
   baseLength: 1.2
   baseRotationSpeed: 180
@@ -23,7 +24,5 @@ MonoBehaviour:
   canParry: 1
   ignoresParry: 0
   parryStunDuration: 0.3
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 4405192852664161086, guid: 686b8542ff0a468408e38bde593257ee, type: 3}
   fireInterval: 1.5
-  scaling: {fileID: 0}
-  weaponPrefab: {fileID: 0}

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810b152311eeb149880393b2d5830a8, type: 3}
   m_Name: Hammer
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponDataSO
+  weaponPrefab: {fileID: 3976688096176557477, guid: b1f0141cdc989504a9d01126a72ba63a, type: 3}
+  scaling: {fileID: 11400000, guid: 84d99663403ecdc4fa18fe1483a6786c, type: 2}
   weaponName: Sword
-  ballColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 2a55451777e76cc45a6b2e26e3b41232, type: 2}
   behaviourType: 0
   baseDamage: 10
   baseLength: 1.2
@@ -25,5 +26,3 @@ MonoBehaviour:
   parryStunDuration: 0.3
   projectilePrefab: {fileID: 0}
   fireInterval: 1.5
-  scaling: {fileID: 0}
-  weaponPrefab: {fileID: 0}

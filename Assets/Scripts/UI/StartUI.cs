@@ -39,11 +39,13 @@ public class StartUI : UIPanel
 
         foreach (BallEntity ball in balls)
         {
-            var button = Instantiate(_changeButtonPrefab, _changeButtonParent).GetComponent<Button>();
-            button.GetComponent<RectTransform>().position = _camera.WorldToScreenPoint(ball.transform.position - Vector3.up * 3);
+            var button = Instantiate(_changeButtonPrefab, null).GetComponent<Button>();
+            button.transform.SetParent(_changeButtonParent, false);
+            button.transform.position = _camera.WorldToScreenPoint(ball.transform.position - Vector3.up * 2);
             _changeButtons.Add(button.GetComponent<Button>());
 
-            button.onClick.AddListener(() => _changeBallUI.SetInfo(ball.BallData));
+            BallEntity capturedBall = ball;
+            button.onClick.AddListener(() => _changeBallUI.SetInfo(capturedBall.BallData));
         }
     }
 

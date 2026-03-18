@@ -8,6 +8,7 @@ public class GameLifetimeScope : LifetimeScope
     [SerializeField] private GraphicRaycaster _graphicRaycaster;
     [SerializeField] private StartUI _startUI;
     [SerializeField] private GameUI _gameUI;
+    [SerializeField] private ChangeBallUI _changeBallUI;
 
     [SerializeField] private WeaponsData _weaponData;
     [SerializeField] private ArenaController _arenaController;
@@ -16,6 +17,7 @@ public class GameLifetimeScope : LifetimeScope
     {
         builder.RegisterComponent(_startUI);
         builder.RegisterComponent(_gameUI);
+        builder.RegisterComponent(_changeBallUI);
 
         builder.RegisterComponent(_weaponData);
         builder.RegisterComponent(_arenaController);
