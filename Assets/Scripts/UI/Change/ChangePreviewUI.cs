@@ -42,6 +42,6 @@ public class ChangePreviewUI : UIPanel
     private void Use()
     {
         Hide();
-        UseChangeAction.Invoke(_selectedItemData);
+        UseChangeAction?.Invoke(_selectedItemData);
     }
 }

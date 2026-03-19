@@ -23,6 +23,12 @@ public class BallEntity : MonoBehaviour
         Health.OnDied += OnDied;
     }
 
+    public void AssignBall(ChangeBallData data)
+    {
+        BallData.SetBall(data);
+        InitBall();
+    }
+
     public void AssignWeapon(WeaponData data)
     {
         BallData.SetWeapon(data);
@@ -31,7 +37,6 @@ public class BallEntity : MonoBehaviour
             Destroy(Weapon.gameObject);
 
         InitWeapon();
-        ApplyColors();
     }
 
     public void ResetForNewBattle()
@@ -55,10 +60,9 @@ public class BallEntity : MonoBehaviour
         Weapon.Initialize(BallData.Weapon, this);
     }
 
-    private void ApplyColors()
+    private void InitBall()
     {
-        //if (_ballRenderer != null && _weaponData != null)
-        //    _ballRenderer.color = _weaponData.ballColor;
+
     }
 
     private void OnDied(BallHealth _)

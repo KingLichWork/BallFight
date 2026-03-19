@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
@@ -12,8 +13,12 @@ public class WeaponController : MonoBehaviour
     private float _fireTimer;        // Ranged: время до следующего выстрела
     private bool _isСlockwise;
 
+    private bool _isFight;
+
     private SpriteRenderer _sr;
     private Collider2D _col;
+
+    private List<Projectile> _projectiles;
 
     public WeaponRuntimeStats Stats => _stats;
     public WeaponData Data => _data;
@@ -35,8 +40,14 @@ public class WeaponController : MonoBehaviour
         UpdateTransform();
     }
 
+    public void StartFight()
+    {
+        _isFight = true;
+    }
+
     public void ResetStats()
     {
+        _isFight = false;
         _stats = _data.CreateRuntimeStats();
         _isParryStunned = false;
         _parryStunTimer = 0f;
@@ -46,6 +57,9 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
+        if (!_isFight)
+            return;
+
         if (_isParryStunned)
         {
             _parryStunTimer -= Time.deltaTime;
@@ -74,7 +88,17 @@ public class WeaponController : MonoBehaviour
         Vector3 spawnPos = transform.position + (Vector3)(fireDir * (_stats.length * 0.5f));
         var go = Instantiate(_data.projectilePrefab, spawnPos, Quaternion.identity);
         var proj = go.GetComponent<Projectile>();
+        _projectiles.Add(proj);
         proj?.Launch(_owner, fireDir, _stats, _data.scaling);
+    }
+
+    private void DestroyProjectiles()
+    {
+        foreach (var proj in _projectiles)
+            if (proj != null)
+                Destroy(proj.gameObject);
+
+        _projectiles.Clear();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -203,6 +227,11 @@ public class WeaponController : MonoBehaviour
         // Спрайт — X = ширина, Y = длина
         if (_sr != null)
             _sr.size = new Vector2(_stats.width, _stats.length);
+    }
+
+    private void OnDestroy()
+    {
+        DestroyProjectiles();
     }
 
     public void UpdateTransformPublic() => UpdateTransform();

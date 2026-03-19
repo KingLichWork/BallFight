@@ -4,7 +4,6 @@ using VContainer;
 
 public class ArenaController : MonoBehaviour
 {
-    [SerializeField] private List<WeaponData> battleWeapons;
     [SerializeField] private GameObject ballPrefab;
 
     [SerializeField] private List<Transform> _spawnPoints;
@@ -12,17 +11,24 @@ public class ArenaController : MonoBehaviour
     private int _spawnCount = 2;
 
     private List<BallEntity> _balls = new();
-    private bool _battleRunning;
+
+    private WeaponsData _weaponsData;
+    private ChangesBallData _changesBallData;
 
     private StartUI _startUI;
     private GameUI _gameUI;
     private IObjectResolver _objectResolver;
 
+    private bool _battleRunning;
+
     [Inject]
-    public void Construct(StartUI startUI, GameUI gameUI, IObjectResolver objectResolver)
+    public void Construct(StartUI startUI, GameUI gameUI, WeaponsData weaponsData, ChangesBallData changesBallData, IObjectResolver objectResolver)
     {
         _startUI = startUI;
         _gameUI = gameUI;
+        _weaponsData = weaponsData;
+        _changesBallData = changesBallData;
+        _objectResolver = objectResolver;
     }
 
     private void OnEnable()
@@ -70,7 +76,8 @@ public class ArenaController : MonoBehaviour
             var ball = Instantiate(ballPrefab, _spawnPoints[i].position, Quaternion.identity, _spawnPoints[i]).GetComponent<BallEntity>();
 
             ball.Init();
-            ball.AssignWeapon(battleWeapons[0]);
+            ball.AssignBall(_changesBallData.Balls[0]);
+            ball.AssignWeapon(_weaponsData.Weapons[0]);
             //ball.PlayerIndex = i;
             ball.Health.OnDied += OnBallDied;
 
@@ -95,15 +102,19 @@ public class ArenaController : MonoBehaviour
     {
         foreach (var b in _balls)
         {
-            if (b == null) continue;
+            if (b == null) 
+                continue;
+
             var rb = b.Physics.Rb;
             rb.constraints = freeze
                 ? RigidbodyConstraints2D.FreezeAll
                 : RigidbodyConstraints2D.FreezeRotation;
 
-            // При разморозке — случайный импульс
             if (!freeze)
+            {
                 b.Physics.SetDirection(Random.insideUnitCircle.normalized);
+                b.Weapon.StartFight();
+            }
         }
     }
 

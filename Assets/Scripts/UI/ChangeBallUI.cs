@@ -18,7 +18,8 @@ public class ChangeBallUI : UIPanel
     private ChangesBallData _changesBallData;
     private ChangePreviewUI _changePreviewUI;
 
-    private BallData _currentBall;
+    private BallData _currentBallData;
+    private BallEntity _currentBall;
 
     [Inject]
     public void Construct(WeaponsData weaponsData, ChangesBallData changesBallData, ChangePreviewUI changePreviewUI)
@@ -32,7 +33,7 @@ public class ChangeBallUI : UIPanel
 
     private void OnEnable()
     {
-        _changePreviewUI.UseChangeAction -= UseChange;
+        _changePreviewUI.UseChangeAction += UseChange;
 
         _closeButton.onClick.AddListener(Hide);
     }
@@ -72,12 +73,17 @@ public class ChangeBallUI : UIPanel
         _contentScrollView.sizeDelta = new Vector2(_contentScrollView.sizeDelta.x, height);
     }
 
-    public void SetInfo(BallData ball)
+    public void Init(BallEntity ball, BallData ballData)
     {
         _currentBall = ball;
-        _ballPreview.SetInfo(_currentBall);
-
+        SetInfo(ballData);
         Show();
+    }
+
+    private void SetInfo(BallData ball)
+    {
+        _currentBallData = ball;
+        _ballPreview.SetInfo(_currentBallData);
     }
 
     private void ShowChange(SelectableItemData data)
@@ -88,7 +94,12 @@ public class ChangeBallUI : UIPanel
 
     private void UseChange(SelectableItemData data)
     {
+        if(data.changeType == ChangeType.Ball)
+            _currentBall.AssignBall((ChangeBallData)data);
+        else
+            _currentBall.AssignWeapon((WeaponData)data);
 
+        _ballPreview.SetInfo(_currentBallData);
     }
 }
 

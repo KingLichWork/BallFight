@@ -45,7 +45,7 @@ public class StartUI : UIPanel
             _changeButtons.Add(button.GetComponent<Button>());
 
             BallEntity capturedBall = ball;
-            button.onClick.AddListener(() => _changeBallUI.SetInfo(capturedBall.BallData));
+            button.onClick.AddListener(() => _changeBallUI.Init(capturedBall, capturedBall.BallData));
         }
     }
 

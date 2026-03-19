@@ -12,7 +12,10 @@ public class BallPreviewUI : MonoBehaviour
 
     public void SetInfo(BallData ball)
     {
-        //_ball.color = ball.Weapon.ballColor;
+        _ball.color = ball.ballData.primaryColor;
         _weapon.sprite = ball.Weapon.itemSprite;
+
+        //_ballDesc.text = ;
+        //_weaponDesc.text = ;
     }
 }
