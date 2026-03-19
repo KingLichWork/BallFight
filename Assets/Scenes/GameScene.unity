@@ -853,7 +853,9 @@ MonoBehaviour:
   _startUI: {fileID: 6718430819491314504}
   _gameUI: {fileID: 1297057661368402711}
   _changeBallUI: {fileID: 1787546515}
+  _changePreviewUI: {fileID: 6718430819491314505}
   _weaponData: {fileID: 11400000, guid: 5fde6085a83ecb44aa1c2f4844ee77ed, type: 2}
+  _changesBallData: {fileID: 11400000, guid: 7e13bdf09083b1f489a5a9bf6465274c, type: 2}
   _arenaController: {fileID: 1502191811}
 --- !u!1 &1162570684
 GameObject:
@@ -1637,6 +1639,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f139197fa7fbe46b145592b17e71bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartUI
+--- !u!114 &6718430819491314505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7448940324050481922, guid: dacd5751ca8b19e4cb002095f8382c53, type: 3}
+  m_PrefabInstance: {fileID: 6718430819491314502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd287b390fabaf4fa46f99121b7a151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangePreviewUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class ChangeView : MonoBehaviour
 
     private SelectableItemData _data;
 
-    public event Action<ChangeType> UseChangeAction;
+    public event Action<SelectableItemData> UseChangeAction;
 
     private void OnEnable()
     {
@@ -38,6 +38,6 @@ public class ChangeView : MonoBehaviour
 
     private void Use()
     {
-        UseChangeAction.Invoke(_data.changeType);
+        UseChangeAction.Invoke(_data);
     }
 }

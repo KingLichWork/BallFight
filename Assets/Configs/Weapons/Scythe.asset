@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810b152311eeb149880393b2d5830a8, type: 3}
   m_Name: Scythe
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponDataSO
+  itemName: Scythe
+  itemSprite: {fileID: 21300000, guid: 4c5b977589ffa0a4da3742a0d4f9988a, type: 2}
+  isUnlocked: 1
+  changeType: 1
   weaponPrefab: {fileID: 3976688096176557477, guid: 1f50039f7d25ce84fb67f602a34532fe, type: 3}
   scaling: {fileID: 11400000, guid: 7687861b04bddbc4b99be4b91a1dbf3b, type: 2}
-  weaponName: Sword
-  weaponSprite: {fileID: 21300000, guid: 4c5b977589ffa0a4da3742a0d4f9988a, type: 2}
   behaviourType: 0
   baseDamage: 10
   baseLength: 1.2

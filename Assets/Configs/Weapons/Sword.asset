@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810b152311eeb149880393b2d5830a8, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponDataSO
+  itemName: Sword
+  itemSprite: {fileID: 21300000, guid: 5817ffbd31675904e85d000805885974, type: 2}
+  isUnlocked: 1
+  changeType: 1
   weaponPrefab: {fileID: 3976688096176557477, guid: f242734bd8acba94e967e207c08e2cce, type: 3}
   scaling: {fileID: 11400000, guid: 8e613a7f3203cc34d93766b51a8439e4, type: 2}
-  weaponName: Sword
-  weaponSprite: {fileID: 21300000, guid: 5817ffbd31675904e85d000805885974, type: 2}
   behaviourType: 0
   baseDamage: 10
   baseLength: 1.2

@@ -42,6 +42,14 @@ MonoBehaviour:
     m_Localized: Weapons
     m_Metadata:
       m_Items: []
+  - m_Id: 714921640697856
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 715190168428544
+    m_Localized: Ability
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

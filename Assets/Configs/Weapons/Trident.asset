@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b810b152311eeb149880393b2d5830a8, type: 3}
   m_Name: Trident
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Data.WeaponDataSO
+  itemName: Trident
+  itemSprite: {fileID: 21300000, guid: d1c0c1b496b960740aafb1bf114591c5, type: 2}
+  isUnlocked: 1
+  changeType: 1
   weaponPrefab: {fileID: 3976688096176557477, guid: e0cb0ccb5e5610e4da67bd6aa1b9ed3f, type: 3}
   scaling: {fileID: 11400000, guid: 3ec4fd926c6ee1140b0050a8d5c7cf6d, type: 2}
-  weaponName: Sword
-  weaponSprite: {fileID: 21300000, guid: d1c0c1b496b960740aafb1bf114591c5, type: 2}
   behaviourType: 0
   baseDamage: 10
   baseLength: 1.2
