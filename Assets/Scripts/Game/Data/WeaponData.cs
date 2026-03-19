@@ -1,30 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public enum WeaponType
-{
-    /// <summary>Меч, копьё, молот, коса — вращается, бьёт при касании.</summary>
-    Melee,
-
-    /// <summary>Кинжал — вращается очень быстро, короткий, бьёт при касании.</summary>
-    Spin,
-
-    /// <summary>Щит — широкий, блокирует и растёт.</summary>
-    Shield,
-
-    /// <summary>Лук — вращается и периодически стреляет снарядом в направлении кончика.</summary>
-    Ranged
-}
-
 [Serializable]
 [CreateAssetMenu(menuName = "Data/WeaponData", fileName = "WeaponData")]
-public class WeaponData : ScriptableObject
+public class WeaponData : SelectableItemData
 {
     public GameObject weaponPrefab;
     public WeaponScaling scaling;
 
-    public string weaponName = "Sword";
-    public Sprite weaponSprite;
     public WeaponType behaviourType = WeaponType.Melee;
 
     [Header("Базовые параметры")]
@@ -42,4 +25,12 @@ public class WeaponData : ScriptableObject
     [Min(0.1f)] public float fireInterval = 1.5f;
 
     public WeaponRuntimeStats CreateRuntimeStats() => new WeaponRuntimeStats(this);
+}
+
+public enum WeaponType
+{
+    Melee,
+    Spin,
+    Shield,
+    Ranged
 }

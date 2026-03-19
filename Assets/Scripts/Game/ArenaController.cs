@@ -119,7 +119,7 @@ public class ArenaController : MonoBehaviour
         if (alive <= 1)
         {
             _battleRunning = false;
-            string winner = lastAlive != null ? lastAlive.BallData.Weapon.weaponName : "Ничья";
+            string winner = lastAlive != null ? lastAlive.BallData.Weapon.itemName : "Ничья";
             Debug.Log($"[Arena] Победитель: {winner}!");
             EndBattle();
         }

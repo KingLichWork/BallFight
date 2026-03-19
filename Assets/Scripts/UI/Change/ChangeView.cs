@@ -1,6 +1,8 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.LightingExplorerTableColumn;
 
 public class ChangeView : MonoBehaviour
 {
@@ -11,11 +13,31 @@ public class ChangeView : MonoBehaviour
 
     [SerializeField] private GameObject _lock;
 
-    public void Init(WeaponData weapon)
+    private SelectableItemData _data;
+
+    public event Action<ChangeType> UseChangeAction;
+
+    private void OnEnable()
     {
-        _image.sprite = weapon.weaponSprite;
-        _name.text = weapon.name;
+        _selectButton.onClick.AddListener(Use);
+    }
+
+    private void OnDisable()
+    {
+        _selectButton.onClick.RemoveListener(Use);
+    }
+
+    public void Init(SelectableItemData data)
+    {
+        _data = data;
+        _image.sprite = _data.itemSprite;
+        _name.text = _data.itemName;
 
        //_lock.SetActive(SaveManager.UnlockedData.);
+    }
+
+    private void Use()
+    {
+        UseChangeAction.Invoke(_data.changeType);
     }
 }
