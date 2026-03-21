@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: Ability
     m_Metadata:
       m_Items: []
+  - m_Id: 1474164614471680
+    m_Key: Colors
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

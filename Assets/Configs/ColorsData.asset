@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabdff8e7d5067b428185d90a6bd7985, type: 3}
   m_Name: ColorsData
   m_EditorClassIdentifier: Assembly-CSharp::ColorsData
-  _colors: []
+  _colors:
+  - {fileID: 11400000, guid: d9a39ad9b45058144ba0d7810e32a043, type: 2}
+  - {fileID: 11400000, guid: db6ac96ae0e1f564281bdb48f366c306, type: 2}
+  - {fileID: 11400000, guid: 33233aa7cc156fd46bd92c563cc306f9, type: 2}
+  - {fileID: 11400000, guid: 4058cc556688b514a906433fd580d2e7, type: 2}
+  - {fileID: 11400000, guid: 52a1e049d25839a4bacbe17b5b2835a7, type: 2}
+  - {fileID: 11400000, guid: 4a24ece71dadec449833448a02358c62, type: 2}
+  - {fileID: 11400000, guid: e44c33dd855ee694c813cdde4b3f1042, type: 2}

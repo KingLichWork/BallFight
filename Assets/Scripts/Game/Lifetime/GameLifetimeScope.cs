@@ -13,6 +13,8 @@ public class GameLifetimeScope : LifetimeScope
 
     [SerializeField] private WeaponsData _weaponData;
     [SerializeField] private ChangesBallData _changesBallData;
+    [SerializeField] private ColorsData _colorsData;
+
     [SerializeField] private ArenaController _arenaController;
 
     protected override void Configure(IContainerBuilder builder)
@@ -24,6 +26,8 @@ public class GameLifetimeScope : LifetimeScope
 
         builder.RegisterComponent(_weaponData);
         builder.RegisterComponent(_changesBallData);
+        builder.RegisterComponent(_colorsData);
+
         builder.RegisterComponent(_arenaController);
 
         builder.RegisterEntryPoint<GameBootstrap>();

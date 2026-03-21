@@ -6,7 +6,6 @@ using UnityEngine;
 public class ChangeBallData : SelectableItemData
 {
     public BallEntity BallPrefab;
-    public Sprite ballSprite;
 
     public BallShapeType shapeType = BallShapeType.Circle;
 }

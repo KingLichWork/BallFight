@@ -75,7 +75,8 @@ public class BallEntity : MonoBehaviour
         _ballPhysics = ball.GetComponent<BallPhysics>();
         _ballRenderer = ball.GetComponent<SpriteRenderer>();
 
-        _ballRenderer.color = BallData.ColorData.Color;
+        if(BallData.ColorData != null)
+            _ballRenderer.color = BallData.ColorData.Color;
 
         if(BallData.Weapon != null)
             InitWeapon();

@@ -34,8 +34,6 @@ public class ChangeBallUI : UIPanel
         _changesBallData = changesBallData;
         _changePreviewUI = changePreviewUI;
         _colorsData = colorsData;
-
-        Init();
     }
 
     private void OnEnable()
@@ -57,7 +55,7 @@ public class ChangeBallUI : UIPanel
         foreach (var weapon in _weaponsData.Weapons)
         {
             ChangeView changeView = Instantiate(_changeBallUIPrefab, _changeCategories[1].ViewParent);
-            changeView.Init(weapon);
+            changeView.Init(weapon, _currentBallData);
 
             changeView.UseChangeAction += ShowChange;
         }
@@ -65,7 +63,7 @@ public class ChangeBallUI : UIPanel
         foreach (var changeBall in _changesBallData.Balls)
         {
             ChangeView changeView = Instantiate(_changeBallUIPrefab, _changeCategories[0].ViewParent);
-            changeView.Init(changeBall);
+            changeView.Init(changeBall, _currentBallData);
 
             _changeBallsViews.Add(changeView);
             changeView.UseChangeAction += ShowChange;
@@ -74,7 +72,7 @@ public class ChangeBallUI : UIPanel
         foreach (var color in _colorsData.Colors)
         {
             ChangeView changeView = Instantiate(_changeBallUIPrefab, _changeCategories[2].ViewParent);
-            changeView.Init(color);
+            changeView.Init(color, _currentBallData);
 
             _changeColorsViews.Add(changeView);
             changeView.UseChangeAction += ShowChange;
@@ -104,7 +102,7 @@ public class ChangeBallUI : UIPanel
 
     private void ShowChange(SelectableItemData data)
     {
-        _changePreviewUI.Init(data);
+        _changePreviewUI.Init(data, _currentBallData);
         _changePreviewUI.Show();
     }
 
@@ -124,6 +122,17 @@ public class ChangeBallUI : UIPanel
         }
 
         _ballPreview.SetInfo(_currentBallData);
+
+        if(data.changeType != ChangeType.Weapon)
+            ChangeView(data);
+    }
+
+    private void ChangeView(SelectableItemData data)
+    {
+        foreach (var item in data.changeType == ChangeType.Ball ? _changeColorsViews : _changeBallsViews)
+        {
+            item.SetView(data, _currentBallData);
+        }
     }
 
     protected override void OnHide()

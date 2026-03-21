@@ -10,12 +10,14 @@ public class GameBootstrap : IInitializable
 {
     private ArenaController _arenaController;
     private StartUI _startUI;
+    private ChangeBallUI _changeBallUI;
 
     [Inject]
-    public GameBootstrap(ArenaController arenaController, StartUI startUI)
+    public GameBootstrap(ArenaController arenaController, StartUI startUI, ChangeBallUI changeBallUI)
     {
         _arenaController = arenaController;
         _startUI = startUI;
+        _changeBallUI = changeBallUI;
     }
 
     public void Initialize()
@@ -26,6 +28,7 @@ public class GameBootstrap : IInitializable
 
             _startUI.Init();
             _arenaController.Init();
+            _changeBallUI.Init();
 
             //YandexGamesSdk.GameReady();
         }

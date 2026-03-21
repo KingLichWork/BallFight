@@ -29,14 +29,33 @@ public class ChangePreviewUI : UIPanel
         _closeButton.onClick.RemoveListener(Hide);
     }
 
-    public void Init(SelectableItemData data)
+    public void Init(SelectableItemData data, BallData currentData)
     {
+        ResetView();
+
         _selectedItemData = data;
 
-        _image.sprite = _selectedItemData.itemSprite;
         _name.text = _selectedItemData.itemName;
-
         //_description.text = ;
+
+        switch (data.changeType)
+        {
+            case ChangeType.Ball:
+                _image.sprite = data.itemSprite;
+                _image.color = currentData.ColorData.Color;
+                break;
+            case ChangeType.Weapon:
+                _image.sprite = data.itemSprite;
+                break;
+            case ChangeType.Color:
+                _image.sprite = currentData.ChangeBallData.itemSprite;
+                break;
+        }
+    }
+
+    private void ResetView()
+    {
+        _image.color = Color.white;
     }
 
     private void Use()

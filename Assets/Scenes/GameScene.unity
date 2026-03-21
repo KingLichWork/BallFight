@@ -856,6 +856,7 @@ MonoBehaviour:
   _changePreviewUI: {fileID: 6718430819491314505}
   _weaponData: {fileID: 11400000, guid: 5fde6085a83ecb44aa1c2f4844ee77ed, type: 2}
   _changesBallData: {fileID: 11400000, guid: 7e13bdf09083b1f489a5a9bf6465274c, type: 2}
+  _colorsData: {fileID: 11400000, guid: b393dad563f66284b9e923bfa7d94aed, type: 2}
   _arenaController: {fileID: 1502191811}
 --- !u!1 &1162570684
 GameObject:
@@ -1049,12 +1050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01c628eaf51a6c40be72f1a68ab01a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WBB.Arena.ArenaController
-  battleWeapons:
-  - {fileID: 11400000, guid: ce28c3cc6d971f641a547db7764b5c02, type: 2}
-  - {fileID: 11400000, guid: 3afcf0ea6c796d648b0cfe0b07ed05a4, type: 2}
-  - {fileID: 11400000, guid: 5b5b320b5b4884d44bce3d9cfd85a73f, type: 2}
-  - {fileID: 11400000, guid: fae7b78293445584e893a43414997784, type: 2}
-  ballPrefab: {fileID: 1160546513457511223, guid: 6e626c2778d4fd344992b3436ff04e99, type: 3}
   _spawnPoints:
   - {fileID: 1885354587}
   - {fileID: 1318575963}
