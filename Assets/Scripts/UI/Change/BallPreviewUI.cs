@@ -12,7 +12,8 @@ public class BallPreviewUI : MonoBehaviour
 
     public void SetInfo(BallData ball)
     {
-        _ball.color = ball.ballData.primaryColor;
+        _ball.sprite = ball.ChangeBallData.ballSprite;
+        _ball.color = ball.ColorData.Color;
         _weapon.sprite = ball.Weapon.itemSprite;
 
         //_ballDesc.text = ;

@@ -1,11 +1,14 @@
-﻿public class BallData
+﻿using UnityEditor.ShaderGraph.Drawing.Colors;
+
+public class BallData
 {
     private WeaponData _weapon;
-    private ChangeBallData _ballData;
+    private ChangeBallData _changeBallData;
+    private ColorData _colorData;
 
     public WeaponData Weapon => _weapon;
-
-    public ChangeBallData ballData => _ballData;
+    public ChangeBallData ChangeBallData => _changeBallData;
+    public ColorData ColorData => _colorData;
 
     public void SetWeapon(WeaponData weapon)
     {
@@ -14,6 +17,11 @@
 
     public void SetBall(ChangeBallData changeBallData)
     {
-        _ballData = changeBallData;
+        _changeBallData = changeBallData;
+    }
+
+    public void SetColor(ColorData colorData)
+    {
+        _colorData = colorData;
     }
 }

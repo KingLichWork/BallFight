@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Square
   m_EditorClassIdentifier: Assembly-CSharp::ChangeBallData
   itemName: Square
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 0c22a1777c40a9344907dc035efad125, type: 3}
   isUnlocked: 1
   changeType: 0
   BallPrefab: {fileID: 4924166417268701786, guid: 0861e1420e0489441a57b627aa7eadde, type: 3}
   shapeType: 1
-  ballSprite: {fileID: 0}
-  primaryColor: {r: 1, g: 1, b: 1, a: 1}
+  ballSprite: {fileID: 21300000, guid: 0c22a1777c40a9344907dc035efad125, type: 3}
+  primaryColor: {r: 1, g: 0, b: 0.124061584, a: 1}
   accentColor: {r: 1, g: 1, b: 1, a: 1}

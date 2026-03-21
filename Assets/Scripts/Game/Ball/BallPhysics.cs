@@ -69,6 +69,13 @@ public class BallPhysics : MonoBehaviour
         Rb.angularVelocity = 0f;
     }
 
+    public void Freeze(bool isAll)
+    {
+        Rb.constraints = isAll
+                ? RigidbodyConstraints2D.FreezeAll
+                : RigidbodyConstraints2D.FreezeRotation;
+    }
+
     private void Launch()
     {
         float angle = Random.Range(0f, 360f);

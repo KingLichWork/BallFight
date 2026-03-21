@@ -12,6 +12,7 @@ public class ArenaController : MonoBehaviour
 
     private WeaponsData _weaponsData;
     private ChangesBallData _changesBallData;
+    private ColorsData _colorsData;
 
     private StartUI _startUI;
     private GameUI _gameUI;
@@ -20,12 +21,13 @@ public class ArenaController : MonoBehaviour
     private bool _battleRunning;
 
     [Inject]
-    public void Construct(StartUI startUI, GameUI gameUI, WeaponsData weaponsData, ChangesBallData changesBallData, IObjectResolver objectResolver)
+    public void Construct(StartUI startUI, GameUI gameUI, WeaponsData weaponsData, ChangesBallData changesBallData, ColorsData colorsData, IObjectResolver objectResolver)
     {
         _startUI = startUI;
         _gameUI = gameUI;
         _weaponsData = weaponsData;
         _changesBallData = changesBallData;
+        _colorsData = colorsData;
         _objectResolver = objectResolver;
     }
 
@@ -75,6 +77,7 @@ public class ArenaController : MonoBehaviour
 
             ball.Init();
             ball.AssignBall(_changesBallData.Balls[0]);
+            ball.AssignColor(_colorsData.Colors[0]);
             ball.AssignWeapon(_weaponsData.Weapons[0]);
             //ball.PlayerIndex = i;
             ball.Health.OnDied += OnBallDied;
@@ -96,19 +99,16 @@ public class ArenaController : MonoBehaviour
         _balls.Clear();
     }
 
-    private void FreezeAll(bool freeze)
+    private void FreezeAll(bool isAllFreeze)
     {
         foreach (var b in _balls)
         {
             if (b == null) 
                 continue;
 
-            var rb = b.BallPhysics.Rb;
-            rb.constraints = freeze
-                ? RigidbodyConstraints2D.FreezeAll
-                : RigidbodyConstraints2D.FreezeRotation;
+            b.BallPhysics.Freeze(isAllFreeze);
 
-            if (!freeze)
+            if (!isAllFreeze)
             {
                 b.BallPhysics.SetDirection(Random.insideUnitCircle.normalized);
                 b.Weapon.StartFight();

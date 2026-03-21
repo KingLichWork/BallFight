@@ -6,11 +6,9 @@ using UnityEngine;
 public class ChangeBallData : SelectableItemData
 {
     public BallEntity BallPrefab;
-    public BallShapeType shapeType = BallShapeType.Circle;
     public Sprite ballSprite;
 
-    public Color primaryColor = Color.white;
-    public Color accentColor = Color.white;
+    public BallShapeType shapeType = BallShapeType.Circle;
 }
 
 public enum BallShapeType

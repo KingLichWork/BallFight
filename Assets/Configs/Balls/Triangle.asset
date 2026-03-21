@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Triangle
   m_EditorClassIdentifier: Assembly-CSharp::ChangeBallData
   itemName: Triangle
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3bba9e19fe33a6e49abd57c2ff9ed994, type: 3}
   isUnlocked: 1
   changeType: 0
   BallPrefab: {fileID: 4924166417268701786, guid: a7779cc10be736f44b05575a93b375cb, type: 3}
   shapeType: 2
-  ballSprite: {fileID: 0}
-  primaryColor: {r: 1, g: 1, b: 1, a: 1}
+  ballSprite: {fileID: 21300000, guid: 3bba9e19fe33a6e49abd57c2ff9ed994, type: 3}
+  primaryColor: {r: 1, g: 0.5639591, b: 0, a: 1}
   accentColor: {r: 1, g: 1, b: 1, a: 1}

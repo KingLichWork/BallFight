@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Hexagon
   m_EditorClassIdentifier: Assembly-CSharp::ChangeBallData
   itemName: Hexagon
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3b72772528eb706478eab8938b244f2e, type: 3}
   isUnlocked: 1
   changeType: 0
   BallPrefab: {fileID: 4924166417268701786, guid: 4b43f198c535c9a4b85f274e64138706, type: 3}
   shapeType: 4
-  ballSprite: {fileID: 0}
-  primaryColor: {r: 1, g: 1, b: 1, a: 1}
+  ballSprite: {fileID: 21300000, guid: 3b72772528eb706478eab8938b244f2e, type: 3}
+  primaryColor: {r: 0, g: 0.59077644, b: 1, a: 1}
   accentColor: {r: 1, g: 1, b: 1, a: 1}

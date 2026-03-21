@@ -31,6 +31,13 @@ public class BallEntity : MonoBehaviour
         Destroy(oldBall);
     }
 
+    public void AssignColor(ColorData color)
+    {
+        BallData.SetColor(color);
+
+        _ballRenderer.color = BallData.ColorData.Color;
+    }
+
     public void AssignWeapon(WeaponData data)
     {
         BallData.SetWeapon(data);
@@ -62,16 +69,19 @@ public class BallEntity : MonoBehaviour
 
     private void InitBall()
     {
-        GameObject ball = Instantiate(BallData.ballData.BallPrefab.BallPhysics.gameObject, transform);
+        GameObject ball = Instantiate(BallData.ChangeBallData.BallPrefab.BallPhysics.gameObject, transform);
         ball.transform.SetSiblingIndex(1);
 
         _ballPhysics = ball.GetComponent<BallPhysics>();
         _ballRenderer = ball.GetComponent<SpriteRenderer>();
 
+        _ballRenderer.color = BallData.ColorData.Color;
+
         if(BallData.Weapon != null)
             InitWeapon();
 
         Health = GetComponentInChildren<BallHealth>();
+        _ballPhysics.Freeze(true);
     }
 
     private void OnDied(BallHealth _)

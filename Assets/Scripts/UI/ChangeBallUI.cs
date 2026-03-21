@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using VContainer;
@@ -14,19 +15,25 @@ public class ChangeBallUI : UIPanel
     [SerializeField] private Button _closeButton;
     [SerializeField] private RectTransform _contentScrollView;
 
+    private List<ChangeView> _changeColorsViews = new List<ChangeView>();
+    private List<ChangeView> _changeBallsViews = new List<ChangeView>();
+
     private WeaponsData _weaponsData;
     private ChangesBallData _changesBallData;
+    private ColorsData _colorsData;
+
     private ChangePreviewUI _changePreviewUI;
 
     private BallData _currentBallData;
     private BallEntity _currentBall;
 
     [Inject]
-    public void Construct(WeaponsData weaponsData, ChangesBallData changesBallData, ChangePreviewUI changePreviewUI)
+    public void Construct(WeaponsData weaponsData, ChangesBallData changesBallData, ColorsData colorsData, ChangePreviewUI changePreviewUI)
     {
         _weaponsData = weaponsData;
         _changesBallData = changesBallData;
         _changePreviewUI = changePreviewUI;
+        _colorsData = colorsData;
 
         Init();
     }
@@ -55,16 +62,25 @@ public class ChangeBallUI : UIPanel
             changeView.UseChangeAction += ShowChange;
         }
 
-
         foreach (var changeBall in _changesBallData.Balls)
         {
             ChangeView changeView = Instantiate(_changeBallUIPrefab, _changeCategories[0].ViewParent);
             changeView.Init(changeBall);
 
+            _changeBallsViews.Add(changeView);
             changeView.UseChangeAction += ShowChange;
         }
 
-        foreach(var category in _changeCategories)
+        foreach (var color in _colorsData.Colors)
+        {
+            ChangeView changeView = Instantiate(_changeBallUIPrefab, _changeCategories[2].ViewParent);
+            changeView.Init(color);
+
+            _changeColorsViews.Add(changeView);
+            changeView.UseChangeAction += ShowChange;
+        }
+
+        foreach (var category in _changeCategories)
         {
             category.Init();
         }
@@ -94,10 +110,18 @@ public class ChangeBallUI : UIPanel
 
     private void UseChange(SelectableItemData data)
     {
-        if(data.changeType == ChangeType.Ball)
-            _currentBall.AssignBall((ChangeBallData)data);
-        else
-            _currentBall.AssignWeapon((WeaponData)data);
+        switch (data.changeType)
+        {
+            case ChangeType.Ball:
+                _currentBall.AssignWeapon((WeaponData)data);
+                break;
+            case ChangeType.Weapon:
+                _currentBall.AssignBall((ChangeBallData)data);
+                break;
+            case ChangeType.Color:
+                _currentBall.AssignColor((ColorData)data);
+                break;
+        }
 
         _ballPreview.SetInfo(_currentBallData);
     }
@@ -112,5 +136,6 @@ public class ChangeBallUI : UIPanel
 public enum ChangeType
 {
     Ball,
-    Weapon
+    Weapon,
+    Color
 }
