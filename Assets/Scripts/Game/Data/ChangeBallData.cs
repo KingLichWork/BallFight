@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/ChangeBallData", fileName = "ChangeBallData")]
 public class ChangeBallData : SelectableItemData
 {
+    public BallEntity BallPrefab;
     public BallShapeType shapeType = BallShapeType.Circle;
     public Sprite ballSprite;
 

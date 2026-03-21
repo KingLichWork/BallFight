@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         if (dealt > 0f)
         {
             // Отталкивание по направлению полёта
-            enemy.Physics.BounceFromHit(_rb.linearVelocity.normalized);
+            enemy.BallPhysics.BounceFromHit(_rb.linearVelocity.normalized);
 
             // Скейлинг — снаряд тоже вызывает OnHit
             float poison = _scaling != null ? _scaling.OnHit(_stats) : 0f;

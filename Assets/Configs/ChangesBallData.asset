@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: ChangesBallData
   m_EditorClassIdentifier: Assembly-CSharp::ChangesBallData
   _balls:
-  - {fileID: 11400000, guid: b773d1ae982447b46bcae21771ce954c, type: 2}
-  - {fileID: 11400000, guid: 94ad2f5097f9bba448a51c0485e1995d, type: 2}
-  - {fileID: 11400000, guid: 75579066a8ccebe4bb069f689ea8e150, type: 2}
   - {fileID: 11400000, guid: 15baa396baf43674f9706f4a0e6fe565, type: 2}
-  - {fileID: 11400000, guid: 1e2bf51695a28654fa9db9eb683d9960, type: 2}
-  - {fileID: 11400000, guid: e4a2c05999eb50d42a2c58df39e3101d, type: 2}
-  - {fileID: 11400000, guid: b8e4ddbc4bfe1d046a6199da63c15c15, type: 2}
-  - {fileID: 11400000, guid: 8f8cd4c124218ca498a430460a732141, type: 2}
+  - {fileID: 11400000, guid: e5f65e4528661e34398ecff38bf51777, type: 2}
+  - {fileID: 11400000, guid: 8c8f0c4331a775a4c8d6228bc203bb89, type: 2}
+  - {fileID: 11400000, guid: dc4a285f801ab844f8b8fd48d908b251, type: 2}
+  - {fileID: 11400000, guid: 53bd9377ddbb0504ab6d5e1346c9409d, type: 2}

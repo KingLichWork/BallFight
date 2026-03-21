@@ -4,8 +4,6 @@ using VContainer;
 
 public class ArenaController : MonoBehaviour
 {
-    [SerializeField] private GameObject ballPrefab;
-
     [SerializeField] private List<Transform> _spawnPoints;
 
     private int _spawnCount = 2;
@@ -73,7 +71,7 @@ public class ArenaController : MonoBehaviour
 
         for (int i = 0; i < _spawnCount; i++)
         {
-            var ball = Instantiate(ballPrefab, _spawnPoints[i].position, Quaternion.identity, _spawnPoints[i]).GetComponent<BallEntity>();
+            var ball = Instantiate(_changesBallData.Balls[0].BallPrefab, _spawnPoints[i].position, Quaternion.identity, _spawnPoints[i]).GetComponent<BallEntity>();
 
             ball.Init();
             ball.AssignBall(_changesBallData.Balls[0]);
@@ -105,14 +103,14 @@ public class ArenaController : MonoBehaviour
             if (b == null) 
                 continue;
 
-            var rb = b.Physics.Rb;
+            var rb = b.BallPhysics.Rb;
             rb.constraints = freeze
                 ? RigidbodyConstraints2D.FreezeAll
                 : RigidbodyConstraints2D.FreezeRotation;
 
             if (!freeze)
             {
-                b.Physics.SetDirection(Random.insideUnitCircle.normalized);
+                b.BallPhysics.SetDirection(Random.insideUnitCircle.normalized);
                 b.Weapon.StartFight();
             }
         }

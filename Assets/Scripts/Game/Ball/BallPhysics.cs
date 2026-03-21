@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CircleCollider2D))]
 public class BallPhysics : MonoBehaviour
 {
     [Header("Движение")]
@@ -19,7 +18,12 @@ public class BallPhysics : MonoBehaviour
     [Header("Отскок при попадании оружием")]
     [SerializeField] private float _hitBounceForce = 5f;
 
+    [SerializeField] private BallShapeType _type;
+    [SerializeField] private Transform _weaponParent;
+
     public Rigidbody2D Rb { get; private set; }
+
+    public Transform WeaponParent => _weaponParent;
 
     private void Awake()
     {
@@ -29,7 +33,7 @@ public class BallPhysics : MonoBehaviour
         Rb.angularDamping = 0f;
         Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        var col = GetComponent<CircleCollider2D>();
+        Collider2D col = GetComponent<Collider2D>();
         col.sharedMaterial = new PhysicsMaterial2D("BallMat")
         {
             bounciness = 1f,

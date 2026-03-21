@@ -18,7 +18,7 @@ public class WeaponController : MonoBehaviour
     private SpriteRenderer _sr;
     private Collider2D _col;
 
-    private List<Projectile> _projectiles;
+    private List<Projectile> _projectiles = new List<Projectile>();
 
     public WeaponRuntimeStats Stats => _stats;
     public WeaponData Data => _data;
@@ -131,10 +131,10 @@ public class WeaponController : MonoBehaviour
 
         // Отталкивание: от атакующего к цели
         Vector2 dir = (target.transform.position - _owner.transform.position).normalized;
-        target.Physics.BounceFromHit(dir);
+        target.BallPhysics.BounceFromHit(dir);
 
         // Небольшой обратный отскок атакующего — ощущение удара
-        _owner.Physics.AddImpulse(-dir, 1.5f);
+        _owner.BallPhysics.AddImpulse(-dir, 1.5f);
 
         ApplyScalingOnHit(target);
         UpdateTransform();
@@ -185,8 +185,8 @@ public class WeaponController : MonoBehaviour
         Vector2 dir = (_owner.transform.position - other._owner.transform.position).normalized;
         if (dir == Vector2.zero) dir = Random.insideUnitCircle.normalized;
 
-        _owner.Physics.AddImpulse(dir, 5f);
-        other._owner.Physics.AddImpulse(-dir, 5f);
+        _owner.BallPhysics.AddImpulse(dir, 5f);
+        other._owner.BallPhysics.AddImpulse(-dir, 5f);
     }
 
     public void ApplyParryStun(float duration)

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd657f93dbd37d04ea204acd657bd00a, type: 3}
-  m_Name: GreenBallData
+  m_Name: Square
   m_EditorClassIdentifier: Assembly-CSharp::ChangeBallData
-  itemName: Item
+  itemName: Square
   itemSprite: {fileID: 0}
   isUnlocked: 1
   changeType: 0
-  shapeType: 0
+  BallPrefab: {fileID: 4924166417268701786, guid: 0861e1420e0489441a57b627aa7eadde, type: 3}
+  shapeType: 1
   ballSprite: {fileID: 0}
   primaryColor: {r: 1, g: 1, b: 1, a: 1}
   accentColor: {r: 1, g: 1, b: 1, a: 1}

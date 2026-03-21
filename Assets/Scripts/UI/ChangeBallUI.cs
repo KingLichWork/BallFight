@@ -101,6 +101,12 @@ public class ChangeBallUI : UIPanel
 
         _ballPreview.SetInfo(_currentBallData);
     }
+
+    protected override void OnHide()
+    {
+        base.OnHide();
+        _changePreviewUI.Hide();
+    }
 }
 
 public enum ChangeType

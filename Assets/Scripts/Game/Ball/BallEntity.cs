@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(BallHealth))]
-[RequireComponent(typeof(BallPhysics))]
 public class BallEntity : MonoBehaviour
 {
-    [Header("Визуал")]
     [SerializeField] private SpriteRenderer _ballRenderer;
-    [SerializeField] private Transform _weaponRoot;
+
+    [SerializeField] private BallPhysics _ballPhysics;
 
     public BallHealth Health { get; private set; }
-    public BallPhysics Physics { get; private set; }
+    public BallPhysics BallPhysics => _ballPhysics;
     public WeaponController Weapon { get; private set; }
     public BallData BallData { get; private set; }
 
@@ -18,7 +17,6 @@ public class BallEntity : MonoBehaviour
         BallData = new BallData();
 
         Health = GetComponent<BallHealth>();
-        Physics = GetComponent<BallPhysics>();
 
         Health.OnDied += OnDied;
     }
@@ -26,7 +24,11 @@ public class BallEntity : MonoBehaviour
     public void AssignBall(ChangeBallData data)
     {
         BallData.SetBall(data);
+
+        GameObject oldBall = _ballPhysics.gameObject;
+
         InitBall();
+        Destroy(oldBall);
     }
 
     public void AssignWeapon(WeaponData data)
@@ -43,14 +45,12 @@ public class BallEntity : MonoBehaviour
     {
         Health.ResetHp();
         Weapon?.ResetStats();
-        Physics.SetDirection(Random.insideUnitCircle.normalized);
+        BallPhysics.SetDirection(Random.insideUnitCircle.normalized);
     }
 
     private void InitWeapon()
     {
-        Transform parent = _weaponRoot != null ? _weaponRoot : transform;
-
-        GameObject weapon = Instantiate(BallData.Weapon.weaponPrefab, parent);
+        GameObject weapon = Instantiate(BallData.Weapon.weaponPrefab, _ballPhysics.WeaponParent);
 
         Weapon = weapon.GetComponent<WeaponController>();
 
@@ -62,14 +62,28 @@ public class BallEntity : MonoBehaviour
 
     private void InitBall()
     {
+        GameObject ball = Instantiate(BallData.ballData.BallPrefab.BallPhysics.gameObject, transform);
+        ball.transform.SetSiblingIndex(1);
 
+        _ballPhysics = ball.GetComponent<BallPhysics>();
+        _ballRenderer = ball.GetComponent<SpriteRenderer>();
+
+        if(BallData.Weapon != null)
+            InitWeapon();
+
+        Health = GetComponentInChildren<BallHealth>();
     }
 
     private void OnDied(BallHealth _)
     {
-        Physics.Rb.linearVelocity = Vector2.zero;
+        BallPhysics.Rb.linearVelocity = Vector2.zero;
         if (Weapon != null) Weapon.enabled = false;
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Health.OnDied -= OnDied;
     }
 }
